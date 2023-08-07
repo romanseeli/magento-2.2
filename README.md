@@ -12,7 +12,7 @@ This repository contains the Magento 2.2 extension that enables to process payme
 
 ## Documentation
 
-* [Documentation](https://plugin-documentation.weareplanet.com/planet-payment/magento-2.2/2.0.6/docs/en/documentation.html)
+* [Documentation](https://plugin-documentation.weareplanet.com/weareplanet/magento-2.2/2.0.6/docs/en/documentation.html)
 
 ## Support
 
