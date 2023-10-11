@@ -72,11 +72,17 @@ class Index extends \WeArePlanet\Payment\Controller\Webhook implements CsrfAware
         return new Request($parsedRequest);
     }
 
+    /**
+     * @inheritDoc
+     */
     public function validateForCsrf(RequestInterface $request): ?bool
     {
         return true;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function createCsrfValidationException(RequestInterface $request): ?InvalidRequestException
     {
         return null;
