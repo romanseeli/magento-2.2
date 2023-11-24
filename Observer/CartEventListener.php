@@ -45,7 +45,7 @@ class CartEventListener implements ObserverInterface
 
     /**
      * This event listener was created appositely to clear the checkout session whenever the cart is changed.
-     * By cleaning the checkout session, we impose to call the Wallee Portal and update the transaction
+     * By cleaning the checkout session, we impose to call the WeArePlanet Portal and update the transaction
      * @param Observer $observer
      * @return void
      */
