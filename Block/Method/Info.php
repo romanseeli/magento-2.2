@@ -5,7 +5,7 @@
  * This Magento 2 extension enables to process payments with WeArePlanet (https://www.weareplanet.com//).
  *
  * @package WeArePlanet_Payment
- * @author wallee AG (http://www.wallee.com/)
+ * @author Planet Merchant Services Ltd. (https://www.weareplanet.com/)
  * @license http://www.apache.org/licenses/LICENSE-2.0  Apache Software License (ASL 2.0)
  */
 namespace WeArePlanet\Payment\Block\Method;
@@ -225,7 +225,7 @@ class Info extends \Magento\Payment\Block\Info
     public function formatAmount($amount)
     {
         //NULL was changed to 0 because PHP8.1 does not allow NULL as parameter
-        return $this->priceCurrency->format($amount, 0, 0, 0, $this->getTransaction()
+        return $this->priceCurrency->format($amount, 0, PriceCurrencyInterface::DEFAULT_PRECISION, 0, $this->getTransaction()
             ->getCurrency());
     }
     /**

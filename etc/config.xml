@@ -6,7 +6,7 @@
  * This Magento 2 extension enables to process payments with WeArePlanet (https://www.weareplanet.com//).
  *
  * @package WeArePlanet_Payment
- * @author wallee AG (http://www.wallee.com/)
+ * @author Planet Merchant Services Ltd. (https://www.weareplanet.com/)
  * @license http://www.apache.org/licenses/LICENSE-2.0  Apache Software License (ASL 2.0)
  */
  -->
@@ -14,7 +14,7 @@
 	<default>
 		<weareplanet_payment>
 			<information>
-				<version>2.1.6</version>
+				<version>2.1.7</version>
 				<sdk_version>3.2.0</sdk_version>
 			</information>
 			<general>

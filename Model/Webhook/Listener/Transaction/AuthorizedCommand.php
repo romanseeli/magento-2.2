@@ -5,7 +5,7 @@
  * This Magento 2 extension enables to process payments with WeArePlanet (https://www.weareplanet.com//).
  *
  * @package WeArePlanet_Payment
- * @author wallee AG (http://www.wallee.com/)
+ * @author Planet Merchant Services Ltd. (https://www.weareplanet.com/)
  * @license http://www.apache.org/licenses/LICENSE-2.0  Apache Software License (ASL 2.0)
  */
 namespace WeArePlanet\Payment\Model\Webhook\Listener\Transaction;
@@ -63,7 +63,7 @@ class AuthorizedCommand extends AbstractCommand
         $payment->registerAuthorizationNotification($entity->getAuthorizationAmount());
 
         if ($entity->getState() != TransactionState::FULFILL) {
-            $order->setState(Order::STATE_PAYMENT_REVIEW);
+            $order->setState(Order::STATE_PENDING_PAYMENT);
             $order->addStatusToHistory('pending',
                 \__('The order should not be fulfilled yet, as the payment is not guaranteed.'));
         }

@@ -5,7 +5,7 @@
  * This Magento 2 extension enables to process payments with WeArePlanet (https://www.weareplanet.com//).
  *
  * @package WeArePlanet_Payment
- * @author wallee AG (http://www.wallee.com/)
+ * @author Planet Merchant Services Ltd. (https://www.weareplanet.com/)
  * @license http://www.apache.org/licenses/LICENSE-2.0  Apache Software License (ASL 2.0)
  */
 namespace WeArePlanet\Payment\Observer;
@@ -65,15 +65,21 @@ class CollectOrderAttributeMetaData implements ObserverInterface
      */
     protected function collectOrderAttributeMetaData(Order $order)
     {
-        $metaData = [];
-        /* @var \Amasty\Orderattr\Model\ResourceModel\Attribute\Collection $attributeCollection */
-        $attributeCollection = $this->objectManager->get(
-            'Amasty\Orderattr\Model\ResourceModel\Attribute\CollectionFactory')->create();
-        $attributeCollection->addFieldToSelect('attribute_code');
-        $attributeCollection->addFieldToSelect('frontend_label');
-        foreach ($attributeCollection->getData() as $attribute) {
-            $metaData['order_' . $attribute['attribute_code']] = $order->getData($attribute['attribute_code']);
-        }
-        return $metaData;
+	$metaData = [];
+	/* @var \Amasty\Orderattr\Model\ResourceModel\Attribute\Collection $attributeCollection */
+	$attributeCollection = $this->objectManager->get(
+	    'Amasty\Orderattr\Model\ResourceModel\Attribute\CollectionFactory')->create();
+	$attributeCollection->addFieldToSelect('attribute_code');
+	$attributeCollection->addFieldToSelect('frontend_label');
+	
+	$i = 0;
+	foreach ($attributeCollection->getData() as $attribute) {
+	    if ( is_null($order->getData($attribute['attribute_code'])) || $i >= 25) {
+		continue;
+	    }
+	    $metaData['order_' . $attribute['attribute_code']] = $order->getData($attribute['attribute_code']);
+	    $i++;
+	}
+	return $metaData;
     }
 }
